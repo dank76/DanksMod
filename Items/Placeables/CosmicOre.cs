@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 using CalamityMod;
 using CalamityMod.CalPlayer;
 using DanksMod.Tiles;
@@ -16,6 +17,9 @@ namespace DanksMod.Items.Placeables
         {
             item.width = item.height = 16;
             item.createTile = ModContent.TileType<CosmicRock>();
+            item.useTime = item.useAnimation = 15;
+            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.maxStack = 999;
         }
     }
 }
