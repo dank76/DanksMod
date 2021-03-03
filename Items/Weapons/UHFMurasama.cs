@@ -2,6 +2,10 @@
 using CalamityMod.Projectiles.Melee;
 using CalamityMod.World;
 using CalamityMod.CalPlayer;
+using CalamityMod.Items.Materials;
+using CalamityMod.Items.Weapons.Melee;
+using CalamityMod.Items.DraedonMisc;
+using CalamityMod.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,6 +14,8 @@ using Terraria.ModLoader;
 using CalamityMod;
 using DanksMod.Projectiles;
 using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
+using CalamityMod.Tiles.Furniture.CraftingStations;
 
 namespace DanksMod.Items.Weapons
 {
@@ -37,11 +43,10 @@ namespace DanksMod.Items.Weapons
             item.knockBack = 6.5f;
             item.autoReuse = false;
             item.value = Item.buyPrice(2, 50, 0, 0);
-            item.rare = ItemRarityID.Red;
             item.shoot = ModContent.ProjectileType<UHFMurasamaSlash>();
             item.shootSpeed = 24f;
-            item.Calamity().customRarity = CalamityRarity.ItemSpecific;
-		}
+            item.Calamity().customRarity = CalamityRarity.Developer;
+        }
 
 		public override bool CanUseItem(Player player)
 		{
@@ -53,6 +58,18 @@ namespace DanksMod.Items.Weapons
             Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
-	}
+        public override void AddRecipes()
+        {
+            ModRecipe modRecipe = new ModRecipe(mod);
+            modRecipe.AddIngredient(ItemType<MysteriousCircuitry>(), 5);
+            modRecipe.AddIngredient(ItemType<DubiousPlating>(), 5);
+            modRecipe.AddIngredient(ItemType<EncryptedSchematic>(), 1);
+            modRecipe.AddIngredient(ItemType<Murasama>(), 1);
+            modRecipe.AddIngredient(ItemType<ShadowspecBar>(), 10);
+            modRecipe.AddIngredient(ItemID.Amethyst, 5);
+            modRecipe.AddTile(TileType<DraedonsForge>());
+            modRecipe.SetResult(this, 1);
+        }
+    }
 }
 

@@ -18,5 +18,7 @@
     <Reference Include="CalamityMod">
       <HintPath>..\..\..\..\..\..\OneDrive\Mod Sources\CalamityMod\CalamityMod.FNA.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing.Design" />
   </ItemGroup>
 </Project>

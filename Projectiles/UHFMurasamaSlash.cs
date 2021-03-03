@@ -33,14 +33,14 @@ namespace DanksMod.Projectiles
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("U.H.F Slash");
+			DisplayName.SetDefault("Castarophe Slash");
 		}
 
 		public override void SetDefaults()
 		{
 			projectile.width = 236;
 			projectile.height = 180;
-			projectile.scale = 2.2f;
+			projectile.scale = 2.1f;
 			projectile.friendly = true;
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
@@ -81,7 +81,7 @@ namespace DanksMod.Projectiles
 			}
 			if (Slashing)
 			{
-				Main.PlaySound(SoundID.Item15, projectile.Center);
+				Main.PlaySound(SoundID.DD2_EtherianPortalOpen, projectile.Center);
 			}
 			Vector2 origin = projectile.Center + projectile.velocity * 3f;
 			Lighting.AddLight(origin, 3f, 0.2f, 0.2f);
