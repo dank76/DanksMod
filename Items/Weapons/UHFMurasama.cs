@@ -43,7 +43,7 @@ namespace DanksMod.Items.Weapons
             item.knockBack = 6.5f;
             item.autoReuse = false;
             item.value = Item.buyPrice(2, 50, 0, 0);
-            item.shoot = ModContent.ProjectileType<UHFMurasamaSlash>();
+            item.shoot = ProjectileType<UHFMurasamaSlash>();
             item.shootSpeed = 24f;
             item.Calamity().customRarity = CalamityRarity.Developer;
         }
