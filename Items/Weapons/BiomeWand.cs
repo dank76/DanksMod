@@ -14,27 +14,27 @@ namespace DanksMod.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Biome Wand");
-			base.Tooltip.SetDefault("Casts a Biome Sword to follow cursor \nChanges depending on the biome");
+            DisplayName.SetDefault("Biome Wand");
+            Tooltip.SetDefault("Casts a Biome Sword to follow cursor \nChanges depending on the biome");
 		}
 
 		public override void SetDefaults()
 		{
-			base.item.damage = 100;
-			base.item.knockBack = 5f;
-			base.item.useTime = (base.item.useAnimation = 10);
-			base.item.mana = 10;
-			base.item.summon = true;
-			base.item.channel = true;
-			base.item.autoReuse = true;
-			base.item.shootSpeed = 7f;
-			base.item.shoot = ModContent.ProjectileType<BiomeWandProj>();
-			base.item.width = (base.item.height = 58);
-			base.item.useStyle = 1;
-			base.item.noMelee = true;
-			base.item.UseSound = SoundID.Item20;
-			base.item.value = Item.buyPrice(0, 1);
-			base.item.rare = 4;
+            item.damage = 100;
+            item.knockBack = 5f;
+            item.useTime = (item.useAnimation = 10);
+            item.mana = 10;
+            item.summon = true;
+            item.channel = true;
+            item.autoReuse = true;
+            item.shootSpeed = 7f;
+            item.shoot = ModContent.ProjectileType<BiomeWandProj>();
+            item.width = (item.height = 58);
+            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.noMelee = true;
+            item.UseSound = SoundID.Item20;
+            item.value = Item.buyPrice(0, 1);
+            item.rare = ItemRarityID.LightRed;
 		}
 		public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
 		{
@@ -63,7 +63,7 @@ namespace DanksMod.Items.Weapons
 			for (int x = 0; x < 1000; x++)
 			{
 				Projectile proj = Main.projectile[x];
-				if (proj.active && proj.owner == player.whoAmI && proj.type == base.item.shoot && proj.ai[0] <= 0f)
+				if (proj.active && proj.owner == player.whoAmI && proj.type == item.shoot && proj.ai[0] <= 0f)
 				{
 					projCount++;
 				}
@@ -73,7 +73,7 @@ namespace DanksMod.Items.Weapons
 
 		public override void AddRecipes()
 		{
-			ModRecipe modRecipe = new ModRecipe(base.mod);
+			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(ItemID.LunarBar, 5);
 			modRecipe.AddIngredient(ModContent.ItemType<GalacticaSingularity>(), 5);
 			modRecipe.AddIngredient(ModContent.ItemType<UnholyEssence>(), 10);

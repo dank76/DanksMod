@@ -18,14 +18,14 @@ namespace DanksMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("True Biome Orb");
-            ProjectileID.Sets.TrailCacheLength[base.projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[base.projectile.type] = 0;
+            DisplayName.SetDefault("True Biome Orb");
+            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
         }
 
 		public override void SetDefaults()
 		{
-            Player player = Main.player[base.projectile.owner];
+            Player player = Main.player[projectile.owner];
             bool jungle = player.ZoneJungle;
             bool snow = player.ZoneSnow;
             bool beach = player.ZoneBeach;
@@ -120,89 +120,89 @@ namespace DanksMod.Projectiles
             bool holy = player.ZoneHoly;
             if (astral)
             {
-                this.dustType = global::Terraria.ModLoader.ModContent.DustType<global::CalamityMod.Dusts.AstralOrange>();
-                this.color = new global::Microsoft.Xna.Framework.Color(255, 127, 80);
+                dustType = ModContent.DustType<AstralOrange>();
+                color = new Color(255, 127, 80);
             }
             else if (jungle)
             {
-                this.dustType = 39;
-                this.color = new global::Microsoft.Xna.Framework.Color(128, 255, 128);
+                dustType = 39;
+                color = new Color(128, 255, 128);
             }
             else if (snow)
             {
-                this.dustType = 51;
-                this.color = new global::Microsoft.Xna.Framework.Color(128, 255, 255);
+                dustType = 51;
+                color = new Color(128, 255, 255);
             }
             else if (beach)
             {
-                this.dustType = 33;
-                this.color = new global::Microsoft.Xna.Framework.Color(0, 0, 128);
+                dustType = 33;
+                color = new Color(0, 0, 128);
             }
             else if (corrupt)
             {
-                this.dustType = 14;
-                this.color = new global::Microsoft.Xna.Framework.Color(128, 64, 255);
+                dustType = 14;
+                color = new Color(128, 64, 255);
             }
             else if (crimson)
             {
-                this.dustType = 5;
-                this.color = new global::Microsoft.Xna.Framework.Color(128, 0, 0);
+                dustType = 5;
+                color = new Color(128, 0, 0);
             }
             else if (dungeon)
             {
-                this.dustType = 29;
-                this.color = new global::Microsoft.Xna.Framework.Color(64, 0, 128);
+                dustType = 29;
+                color = new Color(64, 0, 128);
             }
             else if (desert)
             {
-                this.dustType = 32;
-                this.color = new global::Microsoft.Xna.Framework.Color(255, 255, 128);
+                dustType = 32;
+                color = new Color(255, 255, 128);
             }
             else if (glow)
             {
-                this.dustType = 56;
-                this.color = new global::Microsoft.Xna.Framework.Color(0, 255, 255);
+                dustType = 56;
+                color = new Color(0, 255, 255);
             }
             else if (hell)
             {
-                this.dustType = 6;
-                this.color = new global::Microsoft.Xna.Framework.Color(255, 128, 0);
+                dustType = 6;
+                color = new Color(255, 128, 0);
             }
             else if (sky)
             {
-                this.dustType = 213;
-                this.color = new global::Microsoft.Xna.Framework.Color(255, 255, 255);
+                dustType = 213;
+                color = new Color(255, 255, 255);
             }
             else if (holy)
             {
-                this.dustType = 57;
-                this.color = new global::Microsoft.Xna.Framework.Color(255, 255, 0);
+                dustType = 57;
+                color = new Color(255, 255, 0);
             }
             else
             {
-                this.color = new global::Microsoft.Xna.Framework.Color(0, 128, 0);
+                color = new Color(0, 128, 0);
             }
-            int num458 = global::Terraria.Dust.NewDust(new global::Microsoft.Xna.Framework.Vector2(base.projectile.position.X, base.projectile.position.Y), base.projectile.width, base.projectile.height, this.dustType, 0f, 0f, 100, default(global::Microsoft.Xna.Framework.Color), 1.2f);
-            global::Terraria.Main.dust[num458].noGravity = true;
-            global::Terraria.Main.dust[num458].velocity *= 0.5f;
-            global::Terraria.Main.dust[num458].velocity += base.projectile.velocity * 0.1f;
+            int num458 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, dustType, 0f, 0f, 100, default(Color), 1.2f);
+            Main.dust[num458].noGravity = true;
+            Main.dust[num458].velocity *= 0.5f;
+            Main.dust[num458].velocity += projectile.velocity * 0.1f;
 
-            if (Main.myPlayer == base.projectile.owner && base.projectile.ai[0] <= 0f)
+            if (Main.myPlayer == projectile.owner && projectile.ai[0] <= 0f)
             {
                 if (player.channel)
                 {
                     float speed = 18f;
-                    float mouseDistX2 = (float)Main.mouseX + Main.screenPosition.X - base.projectile.Center.X;
-                    float mouseDistY2 = (float)Main.mouseY + Main.screenPosition.Y - base.projectile.Center.Y;
+                    float mouseDistX2 = (float)Main.mouseX + Main.screenPosition.X - projectile.Center.X;
+                    float mouseDistY2 = (float)Main.mouseY + Main.screenPosition.Y - projectile.Center.Y;
                     if (player.gravDir == -1f)
                     {
-                        mouseDistY2 = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY - base.projectile.Center.Y;
+                        mouseDistY2 = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY - projectile.Center.Y;
                     }
                     Vector2 mouseVec = new Vector2(mouseDistX2, mouseDistY2);
                     float mouseDist2 = mouseVec.Length();
-                    if (base.projectile.ai[0] < 0f)
+                    if (projectile.ai[0] < 0f)
                     {
-                        base.projectile.ai[0] += 1f;
+                        projectile.ai[0] += 1f;
                     }
                     if (mouseDist2 > speed)
                     {
@@ -210,34 +210,34 @@ namespace DanksMod.Projectiles
                         mouseVec.X *= mouseDist2;
                         mouseVec.Y *= mouseDist2;
                         int num = (int)(mouseVec.X * 1000f);
-                        int projSpeedX2 = (int)(base.projectile.velocity.X * 1000f);
+                        int projSpeedX2 = (int)(projectile.velocity.X * 1000f);
                         int mouseSpeedY2 = (int)(mouseVec.Y * 1000f);
-                        int projSpeedY2 = (int)(base.projectile.velocity.Y * 1000f);
+                        int projSpeedY2 = (int)(projectile.velocity.Y * 1000f);
                         if (num != projSpeedX2 || mouseSpeedY2 != projSpeedY2)
                         {
-                            base.projectile.netUpdate = true;
+                            projectile.netUpdate = true;
                         }
-                        base.projectile.velocity.X = mouseVec.X;
-                        base.projectile.velocity.Y = mouseVec.Y;
+                        projectile.velocity.X = mouseVec.X;
+                        projectile.velocity.Y = mouseVec.Y;
                     }
                     else
                     {
                         int num2 = (int)(mouseVec.X * 1000f);
-                        int projSpeedX = (int)(base.projectile.velocity.X * 1000f);
+                        int projSpeedX = (int)(projectile.velocity.X * 1000f);
                         int mouseSpeedY = (int)(mouseVec.Y * 1000f);
-                        int projSpeedY = (int)(base.projectile.velocity.Y * 1000f);
+                        int projSpeedY = (int)(projectile.velocity.Y * 1000f);
                         if (num2 != projSpeedX || mouseSpeedY != projSpeedY)
                         {
-                            base.projectile.netUpdate = true;
+                            projectile.netUpdate = true;
                         }
-                        base.projectile.velocity.X = mouseVec.X;
-                        base.projectile.velocity.Y = mouseVec.Y;
+                        projectile.velocity.X = mouseVec.X;
+                        projectile.velocity.Y = mouseVec.Y;
                     }
                 }
-                else if (base.projectile.ai[0] <= 0f)
+                else if (projectile.ai[0] <= 0f)
                 {
-                    base.projectile.netUpdate = true;
-                    Vector2 projCenter = base.projectile.Center;
+                    projectile.netUpdate = true;
+                    Vector2 projCenter = projectile.Center;
                     float mouseDistX = (float)Main.mouseX + Main.screenPosition.X - projCenter.X;
                     float mouseDistY = (float)Main.mouseY + Main.screenPosition.Y - projCenter.Y;
                     if (player.gravDir == -1f)
@@ -246,37 +246,37 @@ namespace DanksMod.Projectiles
                     }
                     Vector2 mouseVec2 = new Vector2(mouseDistX, mouseDistY);
                     float mouseDist = mouseVec2.Length();
-                    if (mouseDist == 0f || base.projectile.ai[0] < 0f)
+                    if (mouseDist == 0f || projectile.ai[0] < 0f)
                     {
                         projCenter = player.Center;
-                        mouseVec2 = base.projectile.Center - projCenter;
+                        mouseVec2 = projectile.Center - projCenter;
                         mouseDist = mouseVec2.Length();
                     }
                     mouseDist = 12f / mouseDist;
                     mouseVec2.X *= mouseDist;
                     mouseVec2.Y *= mouseDist;
-                    base.projectile.velocity.X = mouseVec2.X;
-                    base.projectile.velocity.Y = mouseVec2.Y;
-                    if (base.projectile.velocity.X == 0f && base.projectile.velocity.Y == 0f)
+                    projectile.velocity.X = mouseVec2.X;
+                    projectile.velocity.Y = mouseVec2.Y;
+                    if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f)
                     {
-                        base.projectile.Kill();
+                        projectile.Kill();
                     }
-                    base.projectile.ai[0] = 1f;
+                    projectile.ai[0] = 1f;
                 }
             }
-            if (base.projectile.velocity.X != 0f || base.projectile.velocity.Y != 0f)
+            if (projectile.velocity.X != 0f || projectile.velocity.Y != 0f)
             {
-                base.projectile.rotation = base.projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+                projectile.rotation = projectile.velocity.ToRotation() + (float)Math.PI / 2f;
             }
-            if (base.projectile.velocity.Y > 16f)
+            if (projectile.velocity.Y > 16f)
             {
-                base.projectile.velocity.Y = 16f;
+                projectile.velocity.Y = 16f;
             }
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            if (base.projectile.timeLeft > 295)
+            if (projectile.timeLeft > 295)
             {
                 return false;
             }
@@ -288,20 +288,20 @@ namespace DanksMod.Projectiles
 			int num799;
 			for (int num795 = 4; num795 < 31; num795 = num799 + 1)
 			{
-				float num796 = base.projectile.oldVelocity.X * (30f / (float)num795);
-				float num797 = base.projectile.oldVelocity.Y * (30f / (float)num795);
-				int num798 = global::Terraria.Dust.NewDust(new global::Microsoft.Xna.Framework.Vector2(base.projectile.oldPosition.X - num796, base.projectile.oldPosition.Y - num797), 8, 8, this.dustType, base.projectile.oldVelocity.X, base.projectile.oldVelocity.Y, 100, default(global::Microsoft.Xna.Framework.Color), 1.8f);
-				global::Terraria.Main.dust[num798].noGravity = true;
-				global::Terraria.Main.dust[num798].velocity *= 0.5f;
-				num798 = global::Terraria.Dust.NewDust(new global::Microsoft.Xna.Framework.Vector2(base.projectile.oldPosition.X - num796, base.projectile.oldPosition.Y - num797), 8, 8, this.dustType, base.projectile.oldVelocity.X, base.projectile.oldVelocity.Y, 100, default(global::Microsoft.Xna.Framework.Color), 1.4f);
-				global::Terraria.Main.dust[num798].velocity *= 0.05f;
+				float num796 = projectile.oldVelocity.X * (30f / (float)num795);
+				float num797 = projectile.oldVelocity.Y * (30f / (float)num795);
+				int num798 = Dust.NewDust(new Vector2(projectile.oldPosition.X - num796, projectile.oldPosition.Y - num797), 8, 8, dustType, projectile.oldVelocity.X, projectile.oldVelocity.Y, 100, default(Color), 1.8f);
+                Main.dust[num798].noGravity = true;
+                Main.dust[num798].velocity *= 0.5f;
+				num798 = Dust.NewDust(new Vector2(projectile.oldPosition.X - num796, projectile.oldPosition.Y - num797), 8, 8, dustType, projectile.oldVelocity.X, projectile.oldVelocity.Y, 100, default(Color), 1.4f);
+                Main.dust[num798].velocity *= 0.05f;
 				num799 = num795;
 			}
 		}
 
-		public override void OnHitNPC(global::Terraria.NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			global::Terraria.Player player = global::Terraria.Main.player[base.projectile.owner];
+            Player player = Main.player[projectile.owner];
 			bool astral = player.Calamity().ZoneAstral;
 			bool jungle = player.ZoneJungle;
 			bool snow = player.ZoneSnow;
@@ -318,17 +318,17 @@ namespace DanksMod.Projectiles
 			}
 			if (jungle)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<Plague>(), 360, false);
+				target.AddBuff(ModContent.BuffType<Plague>(), 360, false);
 				return;
 			}
 			if (snow)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<GlacialState>(), 360, false);
+				target.AddBuff(ModContent.BuffType<GlacialState>(), 360, false);
 				return;
 			}
 			if (beach)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<CrushDepth>(), 360, false);
+				target.AddBuff(ModContent.BuffType<CrushDepth>(), 360, false);
 				return;
 			}
 			if (dungeon)
@@ -338,29 +338,29 @@ namespace DanksMod.Projectiles
 			}
 			if (desert)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<HolyFlames>(), 360, false);
+				target.AddBuff(ModContent.BuffType<HolyFlames>(), 360, false);
 				return;
 			}
 			if (glow)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<TemporalSadness>(), 360, false);
+				target.AddBuff(ModContent.BuffType<TemporalSadness>(), 360, false);
 				return;
 			}
 			if (hell)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<global::CalamityMod.Buffs.DamageOverTime.BrimstoneFlames>(), 360, false);
+				target.AddBuff(ModContent.BuffType<BrimstoneFlames>(), 360, false);
 				return;
 			}
 			if (holy)
 			{
-				target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<global::CalamityMod.Buffs.DamageOverTime.HolyFlames>(), 360, false);
+				target.AddBuff(ModContent.BuffType<HolyFlames>(), 360, false);
 				return;
 			}
-			target.AddBuff(global::Terraria.ModLoader.ModContent.BuffType<global::CalamityMod.Buffs.StatDebuffs.ArmorCrunch>(), 360, false);
+			target.AddBuff(ModContent.BuffType<ArmorCrunch>(), 360, false);
 		}
 
 		private int dustType = 3;
 
-		private global::Microsoft.Xna.Framework.Color color;
+		private Color color;
 	}
 }

@@ -9,6 +9,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using CalamityMod;
 using DanksMod.Projectiles;
+using Terraria.ID;
 
 namespace DanksMod.Items.Weapons
 {
@@ -16,40 +17,40 @@ namespace DanksMod.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-				base.DisplayName.SetDefault("Catastrophe");
-				base.Tooltip.SetDefault("I said my sword was a tool of justice. Not used in anger. Not used for vengeance. \nBut now... Now I'm not so sure. And besides, this isn't my sword.");
+            DisplayName.SetDefault("Catastrophe");
+            Tooltip.SetDefault("stabby :)");
 		}
 
 		public override void SetDefaults()
 		{
-				base.item.height = 128;
-				base.item.width = 56;
-				base.item.damage = 15000;
-				base.item.crit += 30;
-				base.item.melee = true;
-				base.item.noMelee = true;
-				base.item.noUseGraphic = true;
-				base.item.channel = true;
-				base.item.useAnimation = 25;
-				base.item.useStyle = 5;
-				base.item.useTime = 5;
-				base.item.knockBack = 6.5f;
-				base.item.autoReuse = false;
-				base.item.value = global::Terraria.Item.buyPrice(2, 50, 0, 0);
-				base.item.rare = 10;
-				base.item.shoot = ModContent.ProjectileType<UHFMurasamaSlash>();
-				base.item.shootSpeed = 24f;
-				base.item.Calamity().customRarity = global::CalamityMod.CalamityRarity.ItemSpecific;
+            item.height = 128;
+            item.width = 56;
+            item.damage = 15000;
+            item.crit += 30;
+            item.melee = true;
+            item.noMelee = true;
+            item.noUseGraphic = true;
+            item.channel = true;
+            item.useAnimation = 25;
+            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.useTime = 5;
+            item.knockBack = 6.5f;
+            item.autoReuse = false;
+            item.value = Item.buyPrice(2, 50, 0, 0);
+            item.rare = ItemRarityID.Red;
+            item.shoot = ModContent.ProjectileType<UHFMurasamaSlash>();
+            item.shootSpeed = 24f;
+            item.Calamity().customRarity = CalamityRarity.ItemSpecific;
 		}
 
-		public override bool CanUseItem(global::Terraria.Player player)
+		public override bool CanUseItem(Player player)
 		{
-			return player.ownedProjectileCounts[base.item.shoot] <= 0 && CalamityWorld.downedSCal || player.name == "Tyler";
+			return player.ownedProjectileCounts[item.shoot] <= 0 && CalamityWorld.downedSCal || player.name == "Tyler";
 		}
 
-		public override bool Shoot(global::Terraria.Player player, ref global::Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			global::Terraria.Projectile.NewProjectile(position, new global::Microsoft.Xna.Framework.Vector2(speedX, speedY), type, damage, knockBack, player.whoAmI, 0f, 0f);
+            Projectile.NewProjectile(position, new Vector2(speedX, speedY), type, damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

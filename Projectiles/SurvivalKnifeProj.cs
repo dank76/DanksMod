@@ -15,7 +15,7 @@ namespace DanksMod.Projectiles
         }
         public override void SetDefaults()
         {
-            base.projectile.Calamity().rogue = true;
+            projectile.Calamity().rogue = true;
             projectile.width = 14;
             projectile.height = 30;
             projectile.friendly = true;

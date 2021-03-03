@@ -10,29 +10,29 @@ namespace DanksMod.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Sunken Slash");
-			base.Tooltip.SetDefault("slash");
+            DisplayName.SetDefault("Sunken Slash");
+            Tooltip.SetDefault("slash");
 		}
 
 		public override void SetDefaults()
 		{
-			base.item.width = 72;
-			base.item.damage = 60;
-			base.item.crit += 30;
-			base.item.melee = true;
-			base.item.noMelee = true;
-			base.item.noUseGraphic = true;
-			base.item.channel = true;
-			base.item.useAnimation = 25;
-			base.item.useStyle = 5;
-			base.item.useTime = 5;
-			base.item.knockBack = 6.5f;
-			base.item.autoReuse = false;
-			base.item.height = 78;
-			base.item.value = Item.buyPrice(0, 50);
-			base.item.rare = 10;
-			base.item.shoot = ModContent.ProjectileType<SunkenSlash>();
-			base.item.shootSpeed = 24f;
+            item.width = 72;
+            item.damage = 60;
+            item.crit += 30;
+            item.melee = true;
+            item.noMelee = true;
+            item.noUseGraphic = true;
+            item.channel = true;
+            item.useAnimation = 25;
+            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.useTime = 5;
+            item.knockBack = 6.5f;
+            item.autoReuse = false;
+            item.height = 78;
+            item.value = Item.buyPrice(0, 50);
+            item.rare = ItemRarityID.Red;
+            item.shoot = ModContent.ProjectileType<SunkenSlash>();
+            item.shootSpeed = 24f;
 
 		}
 

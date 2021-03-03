@@ -10,8 +10,8 @@ namespace DanksMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Sunken Slash");
-			Main.projFrames[base.projectile.type] = 28;
+            DisplayName.SetDefault("Sunken Slash");
+			Main.projFrames[projectile.type] = 28;
 		}
 
 		public override void SetDefaults()
@@ -19,45 +19,45 @@ namespace DanksMod.Projectiles
 			Mod CalamityMod = ModLoader.GetMod("CalamityMod");
 			if (CalamityMod != null)
 			{
-				base.projectile.width = 148;
-				base.projectile.height = 68;
-				base.projectile.friendly = true;
-				base.projectile.penetrate = -1;
-				base.projectile.tileCollide = false;
-				base.projectile.melee = true;
-				base.projectile.ownerHitCheck = true;
-				base.projectile.usesLocalNPCImmunity = true;
-				base.projectile.localNPCHitCooldown = 5;
+                projectile.width = 148;
+                projectile.height = 68;
+                projectile.friendly = true;
+                projectile.penetrate = -1;
+                projectile.tileCollide = false;
+                projectile.melee = true;
+                projectile.ownerHitCheck = true;
+                projectile.usesLocalNPCImmunity = true;
+                projectile.localNPCHitCooldown = 5;
 			}
 		}
 
 		public override void AI()
 		{
-			Player player = Main.player[base.projectile.owner];
+			Player player = Main.player[projectile.owner];
 			float num = 0f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
-			if (base.projectile.spriteDirection == -1)
+			if (projectile.spriteDirection == -1)
 			{
 				num = (float)Math.PI;
 			}
-			if (++base.projectile.frame >= Main.projFrames[base.projectile.type])
+			if (++projectile.frame >= Main.projFrames[projectile.type])
 			{
-				base.projectile.frame = 0;
+                projectile.frame = 0;
 			}
-			base.projectile.soundDelay--;
-			if (base.projectile.soundDelay <= 0)
+            projectile.soundDelay--;
+			if (projectile.soundDelay <= 0)
 			{
-				Main.PlaySound(SoundID.Item15, base.projectile.Center);
-				base.projectile.soundDelay = 24;
+				Main.PlaySound(SoundID.Item15, projectile.Center);
+                projectile.soundDelay = 24;
 			}
-			if (Main.myPlayer == base.projectile.owner)
+			if (Main.myPlayer == projectile.owner)
 			{
 				if (player.channel && !player.noItems && !player.CCed)
 				{
 					float scaleFactor6 = 1f;
-					if (player.inventory[player.selectedItem].shoot == base.projectile.type)
+					if (player.inventory[player.selectedItem].shoot == projectile.type)
 					{
-						scaleFactor6 = player.inventory[player.selectedItem].shootSpeed * base.projectile.scale;
+						scaleFactor6 = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
 					}
 					Vector2 vector2 = Main.MouseWorld - vector;
 					vector2.Normalize();
@@ -66,34 +66,34 @@ namespace DanksMod.Projectiles
 						vector2 = Vector2.UnitX * player.direction;
 					}
 					vector2 *= scaleFactor6;
-					if (vector2.X != base.projectile.velocity.X || vector2.Y != base.projectile.velocity.Y)
+					if (vector2.X != projectile.velocity.X || vector2.Y != projectile.velocity.Y)
 					{
-						base.projectile.netUpdate = true;
+                        projectile.netUpdate = true;
 					}
-					base.projectile.velocity = vector2;
+                    projectile.velocity = vector2;
 				}
 				else
 				{
-					base.projectile.Kill();
+                    projectile.Kill();
 				}
 			}
-			Vector2 vector3 = base.projectile.Center + base.projectile.velocity * 3f;
+			Vector2 vector3 = projectile.Center + projectile.velocity * 3f;
 			Lighting.AddLight(vector3, 0.2f, 0.2f, 3f);
 			if (Main.rand.NextBool(3))
 			{
-				int num2 = Dust.NewDust(vector3 - base.projectile.Size / 2f, base.projectile.width, base.projectile.height, 99, base.projectile.velocity.X, base.projectile.velocity.Y, 100, default(Color), 2f);
+				int num2 = Dust.NewDust(vector3 - projectile.Size / 2f, projectile.width, projectile.height, 99, projectile.velocity.X, projectile.velocity.Y, 100, default(Color), 2f);
 				Main.dust[num2].noGravity = true;
-				Main.dust[num2].position -= base.projectile.velocity;
+				Main.dust[num2].position -= projectile.velocity;
 			}
-			base.projectile.position = player.RotatedRelativePoint(player.MountedCenter) - base.projectile.Size / 2f;
-			base.projectile.rotation = base.projectile.velocity.ToRotation() + num;
-			base.projectile.spriteDirection = base.projectile.direction;
-			base.projectile.timeLeft = 2;
-			player.ChangeDir(base.projectile.direction);
-			player.heldProj = base.projectile.whoAmI;
+            projectile.position = player.RotatedRelativePoint(player.MountedCenter) - projectile.Size / 2f;
+            projectile.rotation = projectile.velocity.ToRotation() + num;
+            projectile.spriteDirection = projectile.direction;
+            projectile.timeLeft = 2;
+			player.ChangeDir(projectile.direction);
+			player.heldProj = projectile.whoAmI;
 			player.itemTime = 2;
 			player.itemAnimation = 2;
-			player.itemRotation = (float)Math.Atan2(base.projectile.velocity.Y * (float)base.projectile.direction, base.projectile.velocity.X * (float)base.projectile.direction);
+			player.itemRotation = (float)Math.Atan2(projectile.velocity.Y * (float)projectile.direction, projectile.velocity.X * (float)projectile.direction);
 		}
 
 		public override Color? GetAlpha(Color lightColor)

@@ -16,28 +16,28 @@ namespace DanksMod.Items.Weapons
 		public const double AltFireDamageMult = 4.27;
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Dry Ice Blaster");
-			base.Tooltip.SetDefault("Uses frozen gel as ammon \n50% chance to not consume  frozen gel\nFires a spread of dry ice dust \nRight click fires clouds of dust");
+            DisplayName.SetDefault("Dry Ice Blaster");
+            Tooltip.SetDefault("Uses frozen gel as ammon \n50% chance to not consume  frozen gel\nFires a spread of dry ice dust \nRight click fires clouds of dust");
 		}
 
 		public override void SetDefaults()
 		{
-			base.item.damage = 56;
-			base.item.ranged = true;
-			base.item.width = 64;
-			base.item.height = 34;
-			base.item.useTime = 7;
-			base.item.useAnimation = 14;
-			base.item.useStyle = 5;
-			base.item.noMelee = true;
-			base.item.knockBack = 3.5f;
-			base.item.UseSound = SoundID.Item34;
-			base.item.value = Item.buyPrice(1, 20);
-			base.item.rare = 10;
-			base.item.autoReuse = true;
-			base.item.useAmmo = ModContent.ItemType<IceGel>();
+            item.damage = 56;
+            item.ranged = true;
+            item.width = 64;
+            item.height = 34;
+            item.useTime = 7;
+            item.useAnimation = 14;
+            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.noMelee = true;
+            item.knockBack = 3.5f;
+            item.UseSound = SoundID.Item34;
+            item.value = Item.buyPrice(1, 20);
+            item.rare = ItemRarityID.Red;
+            item.autoReuse = true;
+            item.useAmmo = ModContent.ItemType<IceGel>();
 			item.shootSpeed = 10f;
-			base.item.Calamity().customRarity = CalamityMod.CalamityRarity.Turquoise;
+            item.Calamity().customRarity = CalamityRarity.Turquoise;
 		}
 		public override Vector2? HoldoutOffset()
 		{
@@ -54,13 +54,13 @@ namespace DanksMod.Items.Weapons
 		{
 			if (player.altFunctionUse == 2)
 			{
-				base.item.shoot = ModContent.ProjectileType<DryIceCloud>();
-				base.item.useTime = (base.item.useAnimation = 90);
+                item.shoot = ModContent.ProjectileType<DryIceCloud>();
+                item.useTime = (item.useAnimation = 90);
 				item.shootSpeed = 2f;
 			}
 			else
 			{
-				base.item.shoot = ModContent.ProjectileType<DryIceFire>();
+                item.shoot = ModContent.ProjectileType<DryIceFire>();
 				item.shootSpeed = 10f;
 				item.useTime = 7;
 				item.useAnimation = 14;
@@ -111,7 +111,7 @@ namespace DanksMod.Items.Weapons
 
 		public override void AddRecipes()
 		{
-			ModRecipe modRecipe = new ModRecipe(base.mod);
+			ModRecipe modRecipe = new ModRecipe(mod);
 			modRecipe.AddIngredient(ModContent.ItemType<CalamityMod.Items.Materials.EnchantedMetal>(), 5);
 			modRecipe.AddIngredient(ModContent.ItemType<CalamityMod.Items.Materials.CryoBar>(), 10);
 			modRecipe.AddIngredient(ModContent.ItemType<IceGel>(), 10);

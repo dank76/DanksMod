@@ -12,49 +12,49 @@ namespace DanksMod.Projectiles
 
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Fire");
+            DisplayName.SetDefault("Fire");
 		}
 
 		public override void SetDefaults()
 		{
-			base.projectile.width = 12;
-			base.projectile.height = 12;
-			base.projectile.friendly = true;
-			base.projectile.ignoreWater = true;
-			base.projectile.ranged = true;
-			base.projectile.penetrate = 2;
-			base.projectile.extraUpdates = 2;
-			base.projectile.timeLeft = 50;
-			base.projectile.usesLocalNPCImmunity = true;
-			base.projectile.localNPCHitCooldown = 10;
-			base.projectile.tileCollide = false;
+            projectile.width = 12;
+            projectile.height = 12;
+            projectile.friendly = true;
+            projectile.ignoreWater = true;
+            projectile.ranged = true;
+            projectile.penetrate = 2;
+            projectile.extraUpdates = 2;
+            projectile.timeLeft = 50;
+            projectile.usesLocalNPCImmunity = true;
+            projectile.localNPCHitCooldown = 10;
+            projectile.tileCollide = false;
 		}
 
 		public override void AI()
 		{
-			Lighting.AddLight(base.projectile.Center, 0.15f, 0.45f, 0f);
-			if (base.projectile.ai[0] > 7f)
+			Lighting.AddLight(projectile.Center, 0.15f, 0.45f, 0f);
+			if (projectile.ai[0] > 7f)
 			{
 				float num296 = 1f;
-				if (base.projectile.ai[0] == 8f)
+				if (projectile.ai[0] == 8f)
 				{
 					num296 = 0.25f;
 				}
-				else if (base.projectile.ai[0] == 9f)
+				else if (projectile.ai[0] == 9f)
 				{
 					num296 = 0.5f;
 				}
-				else if (base.projectile.ai[0] == 10f)
+				else if (projectile.ai[0] == 10f)
 				{
 					num296 = 0.75f;
 				}
-				base.projectile.ai[0] += 1f;
+                projectile.ai[0] += 1f;
 				int num297 = 230;
 				if (Main.rand.NextBool(2))
 				{
 					for (int num298 = 0; num298 < 2; num298++)
 					{
-						int num299 = Dust.NewDust(new Vector2(base.projectile.position.X, base.projectile.position.Y), base.projectile.width, base.projectile.height, num297, base.projectile.velocity.X * 0.2f, base.projectile.velocity.Y * 0.2f, 100, new Color(), 0.75f);
+						int num299 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num297, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 100, new Color(), 0.75f);
 						Dust dust = Main.dust[num299];
 						if (Main.rand.NextBool(3))
 						{
@@ -71,15 +71,15 @@ namespace DanksMod.Projectiles
 						dust.velocity.X *= 1.2f;
 						dust.velocity.Y *= 1.2f;
 						dust.scale *= num296;
-						dust.velocity += base.projectile.velocity;
+						dust.velocity += projectile.velocity;
 					}
 				}
 			}
 			else
 			{
-				base.projectile.ai[0] += 1f;
+                projectile.ai[0] += 1f;
 			}
-			base.projectile.rotation += 0.3f * (float)base.projectile.direction;
+            projectile.rotation += 0.3f * (float)projectile.direction;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

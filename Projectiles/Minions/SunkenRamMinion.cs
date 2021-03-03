@@ -15,7 +15,7 @@ namespace DanksMod.Projectiles.Minions
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 
 			Main.projPet[projectile.type] = true;
-			Main.projFrames[base.projectile.type] = 10;
+			Main.projFrames[projectile.type] = 10;
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
 		}

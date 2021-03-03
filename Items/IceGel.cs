@@ -17,14 +17,14 @@ namespace DanksMod.Items
         {
             item.height = item.width = 32;
             item.value = Item.buyPrice(0, 1, 0, 0);
-            item.rare = 10;
+            item.rare = ItemRarityID.Red;
             item.ammo = item.type;
             item.maxStack = 9999;
             item.consumable = true;
         }
         public override void AddRecipes()
         {
-            ModRecipe modRecipe = new ModRecipe(base.mod);
+            ModRecipe modRecipe = new ModRecipe(mod);
             modRecipe.AddIngredient(ItemID.IceBlock, 1);
             modRecipe.AddIngredient(ItemID.Gel, 20);
             modRecipe.AddTile(TileID.IceMachine);
