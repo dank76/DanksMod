@@ -2,3 +2,4 @@ displayName = Dank's Mod
 author = Dank
 version = 1.0.0.0
 modReferences = CalamityMod
+buildIgnore = .gitignore, *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, Properties\*, .git\*, Concepts\*
