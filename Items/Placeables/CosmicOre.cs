@@ -17,8 +17,14 @@ namespace DanksMod.Items.Placeables
         {
             item.width = item.height = 16;
             item.createTile = ModContent.TileType<CosmicRock>();
-            item.useTime = item.useAnimation = 15;
             item.useStyle = ItemUseStyleID.SwingThrow;
+            item.useTurn = true;
+            item.useAnimation = 15;
+            item.useTime = 10;
+            item.autoReuse = true;
+            item.consumable = true;
+            item.width = 16;
+            item.height = 16;
             item.maxStack = 999;
         }
     }
