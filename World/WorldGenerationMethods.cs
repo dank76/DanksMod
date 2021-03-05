@@ -15,7 +15,7 @@ using CalamityMod.World;
 
 namespace DanksMod.World
 {
-	public class WorldGenerationMethods : ModWorld
+	public class WorldGenerationMethods : ModWorld //most of this code is taken from spirit
 	{
 		public static bool CosmoliteOre = false;
 

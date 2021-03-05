@@ -11,7 +11,7 @@ namespace DanksMod.Items.Placeables
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Ore");
+            DisplayName.SetDefault("Cosmolite Ore");
         }
         public override void SetDefaults()
         {
@@ -23,9 +23,8 @@ namespace DanksMod.Items.Placeables
             item.useTime = 10;
             item.autoReuse = true;
             item.consumable = true;
-            item.width = 16;
-            item.height = 16;
             item.maxStack = 999;
+            item.Calamity().customRarity = CalamityRarity.DarkBlue;
         }
     }
 }

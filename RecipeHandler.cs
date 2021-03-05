@@ -17,7 +17,7 @@ namespace DanksMod
             ModRecipe recipe = new ModRecipe(GetInstance<DanksMod>());
             recipe.AddIngredient(ItemType<CosmicOre>(), 5); //adds Cosmic ore as a ingredient
             recipe.AddTile(TileType<DraedonsForge>()); //sets crafting station to draedons forge
-            recipe.SetResult(ItemType<CosmiliteBar>()); //sets result
+            recipe.SetResult(ItemType<CosmiliteBar>(), 1); //sets result
             recipe.AddRecipe();
             #endregion
         }
