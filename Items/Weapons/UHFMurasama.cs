@@ -1,11 +1,7 @@
-﻿using System;
-using CalamityMod.Projectiles.Melee;
-using CalamityMod.World;
-using CalamityMod.CalPlayer;
+﻿using CalamityMod.World;
 using CalamityMod.Items.Materials;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.DraedonMisc;
-using CalamityMod.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -19,7 +15,7 @@ using CalamityMod.Tiles.Furniture.CraftingStations;
 
 namespace DanksMod.Items.Weapons
 {
-	public class UHFMurasama : ModItem
+    public class UHFMurasama : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -40,6 +36,7 @@ namespace DanksMod.Items.Weapons
             item.useAnimation = 25;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.useTime = 5;
+            item.rare = 10;
             item.knockBack = 6.5f;
             item.autoReuse = false;
             item.value = Item.buyPrice(2, 50, 0, 0);
@@ -52,14 +49,14 @@ namespace DanksMod.Items.Weapons
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frameI, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
             Texture2D texture = ModContent.GetTexture(this.Texture);
-            spriteBatch.Draw(texture, position, new Rectangle?(item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), Color.White, 0f, origin, scale, 0, 0f);
+            spriteBatch.Draw(texture, position, new Microsoft.Xna.Framework.Rectangle?(item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), Color.White, 0f, origin, scale, 0, 0f);
             return false;
         }
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
             Texture2D texture = ModContent.GetTexture(this.Texture);
-            spriteBatch.Draw(texture, base.item.position - Main.screenPosition, new Rectangle?(base.item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), lightColor, 0f, Vector2.Zero, 1f, 0, 0f);
+            spriteBatch.Draw(texture, base.item.position - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(base.item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), lightColor, 0f, Vector2.Zero, 1f, 0, 0f);
             return false;
         }
 

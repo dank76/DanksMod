@@ -24,6 +24,7 @@ namespace DanksMod.Items.Placeables
             item.autoReuse = true;
             item.consumable = true;
             item.maxStack = 999;
+            item.rare = 10;
             item.Calamity().customRarity = CalamityRarity.DarkBlue;
         }
     }
