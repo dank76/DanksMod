@@ -72,7 +72,7 @@ namespace DanksMod.World
 							{
 								if (Main.tile[EEXX, WHHYY].type == 1)
 								{
-									WorldGen.OreRunner(EEXX, WHHYY, WorldGen.genRand.Next(2, 4), WorldGen.genRand.Next(2, 6), (ushort)TileType<CosmicRock>());
+									WorldGen.OreRunner(EEXX, WHHYY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(5, 6), (ushort)TileType<CosmicRock>());
 								}
 							}
 						}
