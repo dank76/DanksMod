@@ -20,34 +20,6 @@ namespace DanksMod.Items
 {
 	public class DanksGlobalItem : GlobalItem
 	{
-		private CalamityRarity customRarity;
-
-		public override bool InstancePerEntity
-		{
-			get
-			{
-				return true;
-			}
-		}
-
-		public override bool CloneNewInstances
-		{
-			get
-			{
-				return true;
-			}
-		}
-		public int postMoonLordRarity
-		{
-			get
-			{
-				return (int)this.customRarity;
-			}
-			set
-			{
-				this.customRarity = (CalamityRarity)value;
-			}
-		}
 		public override void SetDefaults(Item item)
 		{
 			if (item.type == ItemID.NightsEdge)

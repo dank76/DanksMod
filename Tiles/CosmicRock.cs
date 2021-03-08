@@ -30,7 +30,7 @@ namespace DanksMod.Tiles
 			drop = ModContent.ItemType<Items.Placeables.CosmicOre>();
 			soundType = SoundID.CoinPickup;
 			soundStyle = 1;
-			//mineResist = 4f;
+			mineResist = 12f;
 			minPick = 200;
 		}
 	}
