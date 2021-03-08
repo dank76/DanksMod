@@ -12,7 +12,6 @@ namespace DanksMod
     {
         public static void AddRecipes()
         {
-            Player player = Main.player[Main.myPlayer];
             #region Ores/Bars
             ModRecipe recipe = new ModRecipe(GetInstance<DanksMod>());
             recipe.AddIngredient(ItemType<CosmicOre>(), 5); //adds Cosmic ore as a ingredient
