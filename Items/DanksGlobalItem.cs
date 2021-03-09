@@ -1,24 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System;
-using System.IO;
-using CalamityMod;
-using CalamityMod.Items.Weapons.Magic;
-using Microsoft.Xna.Framework;
+﻿using CalamityMod.Items.Materials;
+using CalamityMod.Tiles.Furniture.CraftingStations;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using DanksMod.Items.Weapons;
-using CalamityMod.Items.Weapons.Summon;
-using CalamityMod.Items.Weapons.Melee;
-using CalamityMod.Items.Weapons.Ranged;
-using CalamityMod.Items.Weapons.Rogue;
-using CalamityMod.Items.Armor;
+using DanksMod.Items.Placeables;
+using static Terraria.ModLoader.ModContent;
 
 namespace DanksMod.Items
 {
-	public class DanksGlobalItem : GlobalItem
+    public class DanksGlobalItem : GlobalItem
 	{
 		public override void SetDefaults(Item item)
 		{
@@ -32,6 +22,22 @@ namespace DanksMod.Items
 			{
 				item.autoReuse = true;
 			}
+		}
+		public void DeleteRecipes(int item)
+		{
+			RecipeFinder val = new RecipeFinder();
+			val.SetResult(item);
+			foreach (Recipe item2 in val.SearchRecipes()) new RecipeEditor(item2).DeleteRecipe();
+		}
+		public override void AddRecipes()
+		{
+			Mod calamityMod = ModLoader.GetMod("CalamityMod");
+			DeleteRecipes(ItemType<CosmiliteBar>());
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemType<CosmicOre>(), 10);
+			recipe.AddTile(TileType<DraedonsForge>());
+			recipe.SetResult(ItemType<CosmiliteBar>(), 1);
+			recipe.AddRecipe();
 		}
 	}
 }

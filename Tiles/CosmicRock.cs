@@ -23,12 +23,12 @@ namespace DanksMod.Tiles
 			Main.tileBlockLight[Type] = true;
 
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Cosmolite Ore");
+			name.SetDefault("Cosmic Ore");
 			AddMapEntry(new Color(139, 38, 150), name);
 
 			dustType = 84;
 			drop = ModContent.ItemType<Items.Placeables.CosmicOre>();
-			soundType = SoundID.CoinPickup;
+			soundType = SoundID.Tink;
 			soundStyle = 1;
 			mineResist = 12f;
 			minPick = 200;

@@ -23,7 +23,7 @@ namespace DanksMod.World
 		{
 			if (CalamityWorld.downedDoG == true)
 			{
-				CosmoliteOre = true;
+                CosmoliteOre = false;
 			}
 		}
         public override void PostWorldGen()
@@ -60,7 +60,7 @@ namespace DanksMod.World
 		{
 			if (CalamityWorld.downedDoG)
 			{
-				if (!CosmoliteOre)
+				if (CosmoliteOre)
 				{
 					for (int k = 0; k < (int)((Main.maxTilesX * Main.maxTilesY * 1.13f) * 15E-05); k++)
 					{

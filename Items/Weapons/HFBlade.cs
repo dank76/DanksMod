@@ -25,7 +25,7 @@ namespace DanksMod.Items.Weapons
 		{
             item.height = 128;
             item.width = 56;
-            item.damage = 100;
+            item.damage = 243;
             item.crit += 30;
             item.melee = true;
             item.noMelee = true;

@@ -19,6 +19,11 @@ namespace DanksMod.Projectiles
             projectile.width = 14;
             projectile.height = 30;
             projectile.friendly = true;
+            base.projectile.friendly = true;
+            base.projectile.penetrate = 3;
+            base.projectile.aiStyle = 2;
+            base.projectile.timeLeft = 600;
+            this.aiType = 48;
         }
         public override void AI()
         {
@@ -32,9 +37,9 @@ namespace DanksMod.Projectiles
                     projectile.frame = 0;
                 }
                 projectile.ai[0] += 1f; // Use a timer to wait 15 ticks before applying gravity.
-                if (projectile.ai[0] >= 40f)
+                if (projectile.ai[0] >= 10f)
                 {
-                    projectile.ai[0] = 40f;
+                    projectile.ai[0] = 10f;
                     projectile.velocity.Y = projectile.velocity.Y + 0.1f;
                 }
                 if (projectile.velocity.Y > 41f)
