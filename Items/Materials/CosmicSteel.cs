@@ -26,7 +26,6 @@ public class CosmicSteel : ModItem
 			base.item.useAnimation = 15;
 			base.item.useTime = 10;
 			base.item.autoReuse = true;
-			base.item.consumable = true;
 		}
         public override void AddRecipes()
         {

@@ -40,7 +40,7 @@ namespace DanksMod.Projectiles
 		{
 			projectile.width = 236;
 			projectile.height = 180;
-			projectile.scale = 2.1f;
+			projectile.scale = 2f;
 			projectile.friendly = true;
 			projectile.penetrate = -1;
 			projectile.tileCollide = false;
