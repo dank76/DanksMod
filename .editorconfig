@@ -3,3 +3,6 @@
 
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = none
+#CS0012: The type 'Rectangle' is defined in an assembly that is not referenced. You must add a reference to assembly 'FNA, Version=17.3.0.0, Culture=neutral, PublicKeyToken=null'.	
+dotnet_diagnostic.CS0012.severity = none
+
