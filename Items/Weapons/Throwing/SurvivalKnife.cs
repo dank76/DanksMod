@@ -5,7 +5,7 @@ using CalamityMod.CalPlayer;
 using DanksMod.Projectiles;
 using Terraria.ID;
 
-namespace DanksMod.Items.Weapons
+namespace DanksMod.Items.Weapons.Throwing
 {
     public class SurvivalKnife : ModItem
     {

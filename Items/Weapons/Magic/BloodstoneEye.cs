@@ -6,7 +6,7 @@ using DanksMod.Projectiles;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 
-namespace DanksMod.Items.Weapons
+namespace DanksMod.Items.Weapons.Magic
 {
 	public class BloodstoneEye : ModItem
 	{
