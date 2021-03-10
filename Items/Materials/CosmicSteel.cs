@@ -12,20 +12,20 @@ public class CosmicSteel : ModItem
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Steel");
-            Tooltip.SetDefault("When the steel is cosmic😳");
+            Tooltip.SetDefault("When the steel is cosmic");
         }
 		public override void SetDefaults()
 		{
-			base.item.width = 30;
-			base.item.height = 24;
-			base.item.maxStack = 999;
-			base.item.value = Item.buyPrice(0, 3, 0, 0);
-			base.item.rare = 5;
-			base.item.useStyle = 1;
-			base.item.useTurn = true;
-			base.item.useAnimation = 15;
-			base.item.useTime = 10;
-			base.item.autoReuse = true;
+            item.width = 30;
+            item.height = 24;
+            item.maxStack = 999;
+            item.value = Item.buyPrice(0, 3, 0, 0);
+            item.rare = 5;
+            item.useStyle = 1;
+            item.useTurn = true;
+            item.useAnimation = 15;
+            item.useTime = 10;
+            item.autoReuse = true;
 		}
         public override void AddRecipes()
         {

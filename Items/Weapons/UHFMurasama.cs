@@ -43,20 +43,20 @@ namespace DanksMod.Items.Weapons
             item.shoot = ProjectileType<UHFMurasamaSlash>();
             item.shootSpeed = 24f;
             item.Calamity().customRarity = CalamityRarity.Developer;
-            Main.RegisterItemAnimation(base.item.type, new DrawAnimationVertical(5, 14));
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 14));
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frameI, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.GetTexture(this.Texture);
+            Texture2D texture = GetTexture(this.Texture);
             spriteBatch.Draw(texture, position, new Microsoft.Xna.Framework.Rectangle?(item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), Color.White, 0f, origin, scale, 0, 0f);
             return false;
         }
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.GetTexture(this.Texture);
-            spriteBatch.Draw(texture, base.item.position - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(base.item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), lightColor, 0f, Vector2.Zero, 1f, 0, 0f);
+            Texture2D texture = GetTexture(this.Texture);
+            spriteBatch.Draw(texture, item.position - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(item.GetCurrentFrame(ref this.frame, ref this.frameCounter, (this.frame == 0) ? 36 : ((this.frame == 8) ? 24 : 6), 13, true)), lightColor, 0f, Vector2.Zero, 1f, 0, 0f);
             return false;
         }
 

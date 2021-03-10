@@ -10,7 +10,7 @@ namespace DanksMod.Items
 {
     public class DanksGlobalItem : GlobalItem
 	{
-		public override void SetDefaults(Item item)
+		public override void SetDefaults(Terraria.Item item)
 		{
 			if (item.type == ItemID.NightsEdge)
 			{

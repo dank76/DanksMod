@@ -19,10 +19,10 @@ namespace DanksMod.Projectiles
             projectile.width = 14;
             projectile.height = 30;
             projectile.friendly = true;
-            base.projectile.friendly = true;
-            base.projectile.penetrate = 3;
-            base.projectile.aiStyle = 2;
-            base.projectile.timeLeft = 600;
+            projectile.friendly = true;
+            projectile.penetrate = 3;
+            projectile.aiStyle = 2;
+            projectile.timeLeft = 600;
             this.aiType = 48;
         }
         public override void AI()

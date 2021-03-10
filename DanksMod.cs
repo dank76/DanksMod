@@ -7,12 +7,5 @@ namespace DanksMod
 {
 	public class DanksMod : Mod
 	{
-        public override void Load()
-        {
-        }
-
-        public override void Unload()
-        {
-        }
     }
 }
