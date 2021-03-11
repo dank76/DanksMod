@@ -8,7 +8,7 @@ using DanksMod.Items.Weapons.RiftWeapons;
 
 namespace DanksMod.UI
 {
-	internal class ExampleResourceBar : UIState
+	internal class RiftResourceBar : UIState
 	{
 		// For this bar we'll be using a frame texture and then a gradient inside bar, as it's one of the more simpler approaches while still looking decent.
 		// Once this is all set up make sure to go and do the required stuff for most UI's in the Mod class.
