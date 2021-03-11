@@ -12,7 +12,7 @@ namespace DanksMod.Items.Weapons.RiftWeapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rift Staff");
-            Tooltip.SetDefault("Opens Rifts at the cursor");
+            Tooltip.SetDefault("Fires rifts at the cursor \n[c/000000:fire the void]");
             Item.staff[item.type] = true;
         }
 
@@ -24,10 +24,11 @@ namespace DanksMod.Items.Weapons.RiftWeapons
             item.noMelee = true;
             item.shoot = ProjectileType<Rift>();
             item.shootSpeed = 12f;
-            item.useTime = 30;
-            item.useAnimation = 30;
+            item.useTime = 10;
+            item.useAnimation = 10;
             item.height = 84;
             item.width = 80;
+            item.autoReuse = true;
         }
     }
 }

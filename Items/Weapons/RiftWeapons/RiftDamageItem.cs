@@ -54,7 +54,7 @@ namespace DanksMod.Items.Weapons.RiftWeapons
 			}
 			int tooltipLocation = tooltips.FindIndex((TooltipLine TooltipLine) => TooltipLine.Name.Equals("ItemName"));
 			{
-				tooltips.Insert(tooltipLocation + 1, new TooltipLine(((ModItem)this).mod, "IsDruid", "[c/fffff:-Rift-]"));
+				tooltips.Insert(tooltipLocation + 1, new TooltipLine(((ModItem)this).mod, "IsDruid", "[c/000000:-Rift Damage-]"));
 			}
 		}
 	}
