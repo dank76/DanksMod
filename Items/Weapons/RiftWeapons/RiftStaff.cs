@@ -28,8 +28,6 @@ namespace DanksMod.Items.Weapons.RiftWeapons
             item.useAnimation = 30;
             item.height = 84;
             item.width = 80;
-
-            riftResourceCost = 10;
         }
     }
 }
