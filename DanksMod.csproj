@@ -22,6 +22,7 @@
     <Reference Include="System.Drawing.Design" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Effects\" />
     <Folder Include="Items\Armor\" />
     <Folder Include="World\" />
   </ItemGroup>

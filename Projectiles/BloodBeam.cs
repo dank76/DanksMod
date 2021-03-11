@@ -177,7 +177,7 @@ namespace DanksMod.Projectiles
 			for (int num47 = 0; num47 < 2; num47++)
 			{
 				int num48 = 14;
-				int num49 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width - num48 * 2, projectile.height - num48 * 2, 263, 0f, 0f, 100, default(Color), 1.35f);
+				int num49 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width - num48 * 2, projectile.height - num48 * 2, 235, 0f, 0f, 100, default(Color), 1.35f);
 				Main.dust[num49].noGravity = true;
 				Main.dust[num49].velocity *= 0.1f;
 				Main.dust[num49].velocity += projectile.velocity * 0.5f;
@@ -185,7 +185,7 @@ namespace DanksMod.Projectiles
 			if (Utils.NextBool(Main.rand, 8))
 			{
 				int num50 = 16;
-				int num51 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width - num50 * 2, projectile.height - num50 * 2, 263, 0f, 0f, 100, default(Color), 1f);
+				int num51 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width - num50 * 2, projectile.height - num50 * 2, 235, 0f, 0f, 100, default(Color), 1f);
 				Main.dust[num51].velocity *= 0.25f;
 				Main.dust[num51].noGravity = true;
 				Main.dust[num51].velocity += projectile.velocity * 0.5f;
@@ -240,13 +240,13 @@ namespace DanksMod.Projectiles
 				{
 					235
 				});
-				int num54 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num47, 0f, 0f, 200, default(Color), num50);
+				int num54 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 235, 0f, 0f, 200, default(Color), num50);
 				Dust dust = Main.dust[num54];
 				dust.position = projectile.Center + Utils.RotatedByRandom(Vector2.UnitY, 3.1415927410125732) * (float)Main.rand.NextDouble() * (float)projectile.width / 2f;
 				dust.noGravity = true;
 				dust.velocity *= 3f;
 				dust.velocity += value4 * Utils.NextFloat(Main.rand);
-				num54 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num48, 0f, 0f, 100, default(Color), num51);
+				num54 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 235, 0f, 0f, 100, default(Color), num51);
 				dust.position = projectile.Center + Utils.RotatedByRandom(Vector2.UnitY, 3.1415927410125732) * (float)Main.rand.NextDouble() * (float)projectile.width / 2f;
 				dust.velocity *= 2f;
 				dust.noGravity = true;
@@ -256,7 +256,7 @@ namespace DanksMod.Projectiles
 			}
 			for (int num55 = 0; num55 < 20; num55++)
 			{
-				int num56 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, num49, 0f, 0f, 0, default(Color), num52);
+				int num56 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 235, 0f, 0f, 0, default(Color), num52);
 				Dust dust2 = Main.dust[num56];
 				dust2.position = projectile.Center + Utils.RotatedBy(Utils.RotatedByRandom(Vector2.UnitX, 3.1415927410125732), (double)Utils.ToRotation(projectile.velocity), default(Vector2)) * (float)projectile.width / 3f;
 				dust2.noGravity = true;
