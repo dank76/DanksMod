@@ -21,7 +21,7 @@ namespace DanksMod.Items.Weapons.RiftWeapons
         {
             item.damage = 200;
             item.rare = ItemRarityID.Red;
-            item.Calamity().customRarity = CalamityRarity.VoidHM;
+            item.Calamity().customRarity = CalamityRarity.Developer;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.shoot = ProjectileType<VoidTentacle>();
