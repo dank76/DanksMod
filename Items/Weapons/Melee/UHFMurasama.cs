@@ -6,12 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
+using DanksMod;
 using Terraria.ModLoader;
 using CalamityMod;
 using DanksMod.Projectiles;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using CalamityMod.Tiles.Furniture.CraftingStations;
+using System.Collections.Generic;
 
 namespace DanksMod.Items.Weapons.Melee
 {
@@ -42,7 +44,6 @@ namespace DanksMod.Items.Weapons.Melee
             item.value = Item.buyPrice(2, 50, 0, 0);
             item.shoot = ProjectileType<UHFMurasamaSlash>();
             item.shootSpeed = 24f;
-            item.Calamity().customRarity = CalamityRarity.Developer;
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 14));
         }
 

@@ -4,8 +4,10 @@ namespace DanksMod
 {
     public enum VoidRarity
     {
-        Void,
-        VoidHardmode,
-        VoidMoonlord
+        ItemSpecific = -1,
+        Void = 13,
+        VoidHardmode = 14,
+        VoidMoonlord = 15,
+        NoEffect = 16
     }
 }

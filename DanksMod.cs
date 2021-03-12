@@ -8,11 +8,14 @@ using DanksMod.Items.Weapons.RiftWeapons;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using DanksMod.Items;
 
 namespace DanksMod
 {
 	public class DanksMod : Mod
 	{
+		
+
 		public DanksMod()
 		{
 

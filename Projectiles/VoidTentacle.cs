@@ -130,8 +130,8 @@ namespace DanksMod.Projectiles
 					scale = MathHelper.Clamp(scale, 0f, 2f);
 					Color color = base.projectile.GetAlpha(lightColor) * (float)((base.projectile.oldPos.Length - i) / base.projectile.oldPos.Length);
 					spriteBatch.Draw(ModContent.GetTexture(this.Texture), drawPos, null, color, base.projectile.rotation, Utils.Size(ModContent.GetTexture(this.Texture)) / 2f, scale, 0, 0f);
-					miscShaderData.UseSaturation((float)i / (float)base.projectile.oldPos.Length);
-					miscShaderData.UseOpacity(1f / (float)base.projectile.oldPos.Length);
+					miscShaderData.UseSaturation(i);
+					miscShaderData.UseOpacity(1f);
 					miscShaderData.Apply(null);
 				}
 			}
