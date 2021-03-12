@@ -1,4 +1,5 @@
 ﻿using System;
+using DanksMod.Buffs.DoTDebuffs;
 using CalamityMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +8,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalamityMod;
+using static Terraria.ModLoader.ModContent;
 
 namespace DanksMod.Projectiles
 {
@@ -162,8 +164,16 @@ namespace DanksMod.Projectiles
 			base.projectile.velocity = oldVelocity;
 			return false;
 		}
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+			target.AddBuff(BuffType<BurningVoid>(), 240);
+        }
+        public override void OnHitPvp(Player target, int damage, bool crit)
+        {
+			target.AddBuff(BuffType<BurningVoid>(), 240);
+        }
 
-		public const float SegmentOffset = 5f;
+        public const float SegmentOffset = 5f;
 
 		public const float MaxArcingSpeed = 16f;
 
